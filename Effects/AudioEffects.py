@@ -47,5 +47,7 @@ def pitch_shift(audio_path: str, percent: float):
     y, sr = librosa.load(path=audio_path, offset=60.0, duration=30.0)
     y_shifted = librosa.effects.pitch_shift(y=y, sr=sr, n_steps=half_steps)
     return y_shifted, sr
-def additive_noise(audio_path:str, percent:float):
+
+
+def additive_noise(audio_path: str, percent: float):
     pass
