@@ -6,7 +6,7 @@ def speed_change(audio_path: str, percent: float):
     """
 
     :param percent: required speed modification in percent,
-    positive percentage means an increase in percent
+    positive percentage means an increase in speed
     and negative percentage means a decrease in speed
     :type audio_path: path for audio location
     """
@@ -32,7 +32,8 @@ def time_stretch(audio_path: str, percent: float):
 def pitch_shift(audio_path: str, percent: float):
     """
 
-    :param percent: required pitch shifting in percent, positive percent means an increase in pitch and
+    :param percent: required pitch shifting in percent,
+    positive percent means an increase in pitch and
     negative percent means a decrease in pitch
     :type audio_path: object
     """
