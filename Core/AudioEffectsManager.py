@@ -1,5 +1,5 @@
 """
-    Class: Effect Manager
+    : AudioEffectsManager
     Author: Efode
     Date: November, 2019
 """
@@ -13,4 +13,6 @@ class EffectManager(object):
     def __init__(self, directory_path=None, file_path=None):
         self.directory_path = directory_path
         self.file_path = file_path
-        self.audio_manager = AudioManager()
+
+    def apply_speed_change(self, percent, mode=1):
+        pass

@@ -1,5 +1,5 @@
 """
-    Class Name: FileManager
+    : FileManager
     Author: Efode
     Date: November, 2019
 """

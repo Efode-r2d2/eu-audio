@@ -1,5 +1,5 @@
 """
-    Class Name: AudioManager
+    : AudioManager
     Author: Efode
     Date: November, 2019
 """
@@ -17,3 +17,5 @@ class AudioManager(object):
         else:
             audio_data, sr = librosa.load(path=self.audio_path)
             return audio_data, sr
+    def save_audio(self):
+        pass

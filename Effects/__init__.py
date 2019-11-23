@@ -1,1 +1,1 @@
-from Effects.AudioEffects import AudioEffects
+from Effects import AudioEffects

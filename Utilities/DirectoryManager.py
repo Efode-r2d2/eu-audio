@@ -1,5 +1,5 @@
 """
-    Class Name: DirectoryManager
+    : DirectoryManager
     Author: Efode
     Date: November, 2019
 """
