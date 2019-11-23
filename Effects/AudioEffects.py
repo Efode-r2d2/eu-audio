@@ -3,7 +3,7 @@
     Class Name: AudioEffects
     Author: Efriem Desalew, efidesalew@gmail.com
     Date: November,2019
-    
+
 """
 import librosa
 import numpy as np
