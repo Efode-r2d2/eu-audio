@@ -1,7 +1,7 @@
 """
 
     Class Name: AudioEffects
-    Author: Efriem Desalew, efidesalew@gmail.com
+    Author: Efode
     Date: November,2019
 
 """

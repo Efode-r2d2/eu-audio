@@ -1,6 +1,6 @@
 """
     Class Name: AudioManager
-    Author: Efriem Desalew, efidesalew@gmial.com
+    Author: Efode
     Date: November, 2019
 """
 import librosa
@@ -16,3 +16,4 @@ class AudioManager(object):
             return audio_data, sr
         else:
             audio_data, sr = librosa.load(path=self.audio_path)
+            return audio_data, sr

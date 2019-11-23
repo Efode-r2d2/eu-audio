@@ -1,6 +1,6 @@
 """
     Class Name: DirectoryManager
-    Author: Efriem Desalew, efidesalew@gmail.com
+    Author: Efode
     Date: November, 2019
 """
 import os
@@ -29,3 +29,9 @@ class DirectoryManager(object):
                 if '.wav' in file:
                     wav_files.append(os.path.join(r, file))
         return wav_files
+    """
+        Creating new directory 
+    """
+    def create_dir(self):
+        if not os.path.exists(self.directory_path):
+            os.makedirs(self.directory_path)
