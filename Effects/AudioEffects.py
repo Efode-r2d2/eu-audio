@@ -29,13 +29,22 @@ def time_stretch(audio_path: str, percent: float):
     return y_stretched, sr
 
 
-def pitch_shifting(audio_path: str, percent: float):
+def pitch_shift(audio_path: str, percent: float):
     """
 
-    :param percent: 
+    :param percent: required pitch shifting in percent, positive percent means an increase in pitch and
+    negative percent means a decrease in pitch
     :type audio_path: object
     """
-    steps = percent / 5.9463
+    """
+        Here there is a conversion of required pitch modification in 
+        percent to half step which is the smallest musical interval 
+        commonly used in westeren tonal music. 
+        One Half tone is approximately equal to 5.9463%
+    """
+    half_steps = percent / 5.9463
     y, sr = librosa.load(path=audio_path, offset=60.0, duration=30.0)
-    y_shifted = librosa.effects.pitch_shift(y=y, sr=sr, n_steps=steps)
+    y_shifted = librosa.effects.pitch_shift(y=y, sr=sr, n_steps=half_steps)
     return y_shifted, sr
+def additive_noise(audio_path:str, percent:float):
+    pass
