@@ -44,8 +44,42 @@ def apply_time_stretching(original_audio_path, modified_audio_path, target_durat
     :param offset:
     :param duration:
     """
-    audio_data, sr = AudioManager.load_audio(audio_path=original_audio_path, offset=offset, duration=duration)
-    modified_audio_data, sr = AudioEffects.time_stretch(audio_data=audio_data,
-                                                        sr=sr,
-                                                        time_stretching_in_percent=target_duration_in_percent)
+    original_audio_data, sr = AudioManager.load_audio(audio_path=original_audio_path, offset=offset, duration=duration)
+    modified_audio_data = AudioEffects.time_stretch(audio_data=original_audio_data,
+                                                    sr=sr,
+                                                    time_stretching_in_percent=target_duration_in_percent)
+    AudioManager.save_audio(audio_path=modified_audio_path, audio_data=modified_audio_data, sr=sr)
+
+
+def apply_pitch_shifting(original_audio_path, modified_audio_path, target_pitch_shift_in_percent, offset=None,
+                         duration=None):
+    """
+
+    :param target_pitch_shift_in_percent:
+    :param original_audio_path:
+    :param modified_audio_path:
+    :param offset:
+    :param duration:
+    """
+    original_audio_data, sr = AudioManager.load_audio(audio_path=original_audio_path,
+                                                      offset=offset,
+                                                      duration=duration)
+    modified_audio_data = AudioEffects.pitch_shift(audio_data=original_audio_data,
+                                                   sr=sr,
+                                                   pitch_shift_in_percent=target_pitch_shift_in_percent)
+    AudioManager.save_audio(audio_path=modified_audio_path, audio_data=modified_audio_data, sr=sr)
+
+
+def add_white_noise(original_audio_path, modified_audio_path, target_snr_in_db, offset=None, duration=None):
+    """
+
+    :param original_audio_path:
+    :param modified_audio_path:
+    :param target_snr_in_db:
+    :param offset:
+    :param duration:
+    """
+    original_audio_data, sr = AudioManager.load_audio(audio_path=original_audio_path, offset=offset, duration=duration)
+    modified_audio_data = AudioEffects.add_white_noise(audio_data=original_audio_data,
+                                                       target_snr_in_db=target_snr_in_db)
     AudioManager.save_audio(audio_path=modified_audio_path, audio_data=modified_audio_data, sr=sr)

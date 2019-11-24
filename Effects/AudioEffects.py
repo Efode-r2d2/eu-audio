@@ -52,7 +52,7 @@ def time_stretch(audio_data, sr, time_stretching_in_percent):
     rate = (100 + time_stretching_in_percent) / 100
     """Applying time stretching"""
     modified_audio_data = librosa.effects.time_stretch(y=audio_data, rate=rate)
-    return modified_audio_data, sr
+    return modified_audio_data
 
 
 def pitch_shift(audio_data, sr, pitch_shift_in_percent):
@@ -72,13 +72,12 @@ def pitch_shift(audio_data, sr, pitch_shift_in_percent):
 
     half_steps = pitch_shift_in_percent / 5.9463
     modified_audio_data = librosa.effects.pitch_shift(y=audio_data, sr=sr, n_steps=half_steps)
-    return modified_audio_data, sr
+    return modified_audio_data
 
 
-def add_white_noise(audio_data, sr, target_snr_in_db):
+def add_white_noise(audio_data, target_snr_in_db):
     """
 
-    :param sr: original sampling rate
     :param audio_data: original time series data
     :type target_snr_in_db: target signal to noise ratio in db
     """
@@ -92,4 +91,4 @@ def add_white_noise(audio_data, sr, target_snr_in_db):
     noise = np.random.normal(mean_noise, np.sqrt(noise_avg), len(audio_data))
     # Noise up the original signal
     modified_audio_date = audio_data + noise
-    return modified_audio_date, sr
+    return modified_audio_date
