@@ -20,10 +20,19 @@ from eyed3 import id3
 
 
 def rename_file(file_path, new_file_path):
+    """
+    :param file_path:
+    :param new_file_path:
+    """
     os.rename(file_path, new_file_path)
 
 
 def get_meta_data(file_path):
+    """
+
+    :param file_path:
+    :return:
+    """
     tag = id3.Tag()
     tag.parse(file_path)
     return tag.artist, tag.album, tag.title

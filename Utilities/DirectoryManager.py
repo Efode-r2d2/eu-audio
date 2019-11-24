@@ -19,6 +19,10 @@ import os
 
 
 def find_mp3_files(directory_path):
+    """
+
+    :type directory_path: object
+    """
     mp3_files = []
     for r, d, f in os.walk(directory_path):
         for file in f:
@@ -28,6 +32,10 @@ def find_mp3_files(directory_path):
 
 
 def find_wav_files(directory_path):
+    """
+
+    :type directory_path: object
+    """
     wav_files = []
     for r, d, f in os.walk(directory_path):
         for file in f:
@@ -37,6 +45,9 @@ def find_wav_files(directory_path):
 
 
 def create_dir(directory_path):
+    """
+
+    :type directory_path: object
+    """
     if not os.path.exists(directory_path):
         os.makedirs(directory_path)
-
