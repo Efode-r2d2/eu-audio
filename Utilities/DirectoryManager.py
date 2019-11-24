@@ -18,32 +18,25 @@
 import os
 
 
-class DirectoryManager(object):
-    def __init__(self, directory_path):
-        self.directory_path = directory_path
-    """ 
-        Find all .mp3 files with in a given directory
-    """
-    def find_mp3_files(self):
-        mp3_files = []
-        for r, d, f in os.walk(self.directory_path):
-            for file in f:
-                if '.mp3' in file:
-                    mp3_files.append(os.path.join(r, file))
-        return mp3_files
-    """
-        Find all .wav files with in a given directory
-    """
-    def find_wav_files(self):
-        wav_files = []
-        for r, d, f in os.walk(self.directory_path):
-            for file in f:
-                if '.wav' in file:
-                    wav_files.append(os.path.join(r, file))
-        return wav_files
-    """
-        Creating new directory 
-    """
-    def create_dir(self):
-        if not os.path.exists(self.directory_path):
-            os.makedirs(self.directory_path)
+def find_mp3_files(directory_path):
+    mp3_files = []
+    for r, d, f in os.walk(directory_path):
+        for file in f:
+            if '.mp3' in file:
+                mp3_files.append(os.path.join(r, file))
+    return mp3_files
+
+
+def find_wav_files(directory_path):
+    wav_files = []
+    for r, d, f in os.walk(directory_path):
+        for file in f:
+            if '.wav' in file:
+                wav_files.append(os.path.join(r, file))
+    return wav_files
+
+
+def create_dir(directory_path):
+    if not os.path.exists(directory_path):
+        os.makedirs(directory_path)
+
