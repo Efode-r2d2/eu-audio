@@ -1,21 +1,32 @@
 """
-    : AudioManager
-    Author: Efode
-    Date: November, 2019
+    <ed-Audio is an open source audio processing toolbox>
+    Copyright (C) <2019>  <Efriem Desalew Gebie>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 import librosa
+import soundfile as sf
 
 
-class AudioManager(object):
-    def __init(self, audio_path):
-        self.audio_path = audio_path
+def load_audio(audio_path, offset=None, duration=None):
+    if offset is not None and duration is not None:
+        audio_data, sr = librosa.load(path=audio_path, offset=offset, duration=duration)
+        return audio_data, sr
+    else:
+        audio_data, sr = librosa.load(path=audio_path)
+        return audio_data, sr
 
-    def load_audio(self, offset=None, duration=None):
-        if offset is not None and duration is not None:
-            audio_data, sr = librosa.load(path=self.audio_path, offset=offset, duration=duration)
-            return audio_data, sr
-        else:
-            audio_data, sr = librosa.load(path=self.audio_path)
-            return audio_data, sr
-    def save_audio(self):
-        pass
+
+def save_audio(audio_path, audio_data, sr):
+    sf.write(file=audio_path, data=audio_data, samplerate=sr)
