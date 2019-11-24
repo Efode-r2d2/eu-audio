@@ -12,10 +12,11 @@ modified_audio_path = original_audio_path.replace("mp3", "wav")
 # modified and original audio paths
 print("Original Audio Path: ", original_audio_path)
 print("Modified Audio Path: ", modified_audio_path)
-# applying 2% speed change
+# applying 10% speed change to for an audio portion specified with offset and duration parameters
 EffectsManager.apply_speed_change(original_audio_path=original_audio_path,
                                   modified_audio_path=modified_audio_path,
                                   target_speed_in_percent=10,
                                   offset=10.0,
                                   duration=20.0
                                   )
+
