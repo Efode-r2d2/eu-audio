@@ -16,3 +16,10 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 from Utilities import DirectoryManager
+
+# source directory
+source_dir = "../../Test_Data/Reference_Audios"
+# searching for all .mp3 files in a given directory
+mp3_files = DirectoryManager.find_mp3_files(source_dir=source_dir)
+# printing .mp3 files
+print(len(mp3_files), " .mp3 files found!")
