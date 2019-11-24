@@ -15,3 +15,14 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
+from Utilities import FileManager
+
+# file path
+file_path = "../../Test_Data/Reference_Audios/Audio1.mp3"
+"""
+get metadata, get_meta_data will return a list which contains metadata 
+about the audio located in a given path
+"""
+file_meta_data = FileManager.get_meta_data(file_path=file_path)
+# print metadata
+print(file_meta_data)
