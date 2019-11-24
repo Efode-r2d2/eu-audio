@@ -31,7 +31,7 @@ def apply_speed_change(original_audio_path, modified_audio_path, target_speed_in
     modified_audio_data, target_sr = AudioEffects.speed_change(audio_data=audio_data,
                                                                sr=sr,
                                                                target_speed_in_percent=target_speed_in_percent)
-    AudioManager.save_audio(audio_path=modified_audio_path, audio_data=modified_audio_data, sr=target_sr)
+    AudioManager.save_audio(audio_path=modified_audio_path, audio_data=modified_audio_data, sr=sr)
 
 
 def apply_time_stretching(original_audio_path, modified_audio_path, target_duration_in_percent, offset=None,
