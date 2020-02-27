@@ -81,14 +81,16 @@ def add_white_noise(audio_data, target_snr_in_db):
     :param audio_data: original time series data
     :type target_snr_in_db: target signal to noise ratio in db
     """
-    sig_avg = np.mean(audio_data)
-    sig_avg_db = 10 * np.log10(np.abs(sig_avg))
+    sig_power = sum(i * i for i in audio_data) / (len(audio_data))
+    noise_power = sig_power / (10 ** (0.1 * target_snr_in_db))
+    #sig_avg = np.mean(audio_data)
+    #sig_avg_db = 10 * np.log10(np.abs(sig_avg))
     # Calculate noise db
-    noise_avg_db = sig_avg_db - target_snr_in_db
-    noise_avg = 10 ** (noise_avg_db / 10)
+    #noise_avg_db = sig_avg_db - target_snr_in_db
+    #noise_avg = 10 ** (noise_avg_db / 10)
     # Generate white noise with a mean of zero
     mean_noise = 0.0
-    noise = np.random.normal(mean_noise, np.sqrt(noise_avg), len(audio_data))
+    noise = np.random.normal(mean_noise, np.sqrt(noise_power), len(audio_data))
     # Noise up the original signal
     modified_audio_date = audio_data + noise
     return modified_audio_date

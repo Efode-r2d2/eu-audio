@@ -31,14 +31,14 @@ print("File Name", file_name)
 # applying 10% time stretching on a portion of audio defined by offset and duration parameters
 EffectsManager.apply_time_stretching(original_audio_path=original_audio_path,
                                      modified_audio_path=dist_dir+"/"+file_name+str(100+10)+".wav",
-                                     target_duration_in_percent=10,
+                                     target_duration_in_percent=5,
                                      offset=10.0,
                                      duration=20.0)
 print("Audio Saved Here, ", dist_dir+"/"+file_name+str(100+10)+".wav")
 # applying -10% time stretching on a portion of audio defined by offset and duration parameters
 EffectsManager.apply_time_stretching(original_audio_path=original_audio_path,
                                      modified_audio_path=dist_dir+"/"+file_name+str(100-10)+".wav",
-                                     target_duration_in_percent=-10,
+                                     target_duration_in_percent=-5,
                                      offset=10.0,
                                      duration=20.0)
 print("Audio Saved Here, ", dist_dir+"/"+file_name+str(100-10)+".wav")

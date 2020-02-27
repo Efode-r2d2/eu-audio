@@ -25,7 +25,7 @@ dist_dir = "../../Test_Data/Modified_Audios/White_Noise"
 # searching for all .mp3 files in a given source directory
 mp3_files = DirectoryManager.find_mp3_files(source_dir=src_dir)
 # adding white noise to the fourth audio
-original_audio_path = mp3_files[3]
+original_audio_path = mp3_files[0]
 file_name = original_audio_path.split("/")[4].split(".")[0]
 print("Original Audio Path: ", original_audio_path)
 print("File Name: ", file_name)
