@@ -32,11 +32,12 @@ audio_name = original_audio_path.split("/")[4].split(".")[0]
 # modified and original audio paths
 print("Original Audio Path: ", original_audio_path)
 # applying 10% speed change to for an audio portion specified with offset and duration parameters
+speed_change_in_percent = 0
 EffectsManager.apply_speed_change(original_audio_path=original_audio_path,
-                                  modified_audio_path=dist_dir + "/" + audio_name + str(100 + 10) + ".wav",
-                                  target_speed_in_percent=10,
+                                  modified_audio_path=dist_dir + "/" + audio_name + "_Speed_" + str(speed_change_in_percent) + ".wav",
+                                  target_speed_in_percent=speed_change_in_percent,
                                   offset=10.0,
-                                  duration=40.0
+                                  duration=5.0
                                   )
 # applying -10% speed change to an audio portion specified with offset and duration parameters
 '''EffectsManager.apply_speed_change(original_audio_path=original_audio_path,
@@ -45,4 +46,3 @@ EffectsManager.apply_speed_change(original_audio_path=original_audio_path,
                                   offset=10.0,
                                   duration=40.0
                                   )'''
-
