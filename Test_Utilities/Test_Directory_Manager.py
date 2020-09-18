@@ -15,11 +15,11 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
-from Utilities import DirectoryManager
+from Utilities import directory_manager
 
 # source directory
 source_dir = "../../Test_Data/Reference_Audios"
 # searching for all .mp3 files in a given directory
-mp3_files = DirectoryManager.find_mp3_files(source_dir=source_dir)
+mp3_files = directory_manager.find_mp3_files(source_dir=source_dir)
 # printing .mp3 files
 print(len(mp3_files), " .mp3 files found!")

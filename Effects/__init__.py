@@ -1,1 +1,1 @@
-from Effects import AudioEffects
+from Effects import audio_effects

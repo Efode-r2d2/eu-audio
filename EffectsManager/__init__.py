@@ -1,1 +1,1 @@
-from EffectsManager import EffectsManager
+from EffectsManager import effects_manager

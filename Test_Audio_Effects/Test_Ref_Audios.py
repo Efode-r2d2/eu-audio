@@ -15,20 +15,20 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
-from Utilities import DirectoryManager
-from Utilities import FileManager
-from Utilities import AudioManager
-from EffectsManager import EffectsManager
+from Utilities import directory_manager
+from Utilities import file_manager
+from Utilities import audio_manager
+from EffectsManager import effects_manager
 
 # directory path for full length reference audios
 source_dir = "../../Test_Data/Reference_Audios"
 # directory path for short snippet reference audios
 dist_dir = "../../Test_Data/Ref_Audios/"
 # reference audios
-reference_audios = DirectoryManager.find_mp3_files(source_dir=source_dir)
+reference_audios = directory_manager.find_mp3_files(source_dir=source_dir)
 for i in reference_audios[0:10]:
     audio_name = i.split("/")[4].split(".")[0]
     # reading only 5 second audio duration
-    audio_excerpt, sr = AudioManager.load_audio(audio_path=i, offset=10.0, duration=5.0)
+    audio_excerpt, sr = audio_manager.load_audio(audio_path=i, offset=10.0, duration=5.0)
     # saving the 5 second audio duration
-    AudioManager.save_audio(audio_path=dist_dir + audio_name + ".wav", audio_data=audio_excerpt, sr=sr)
+    audio_manager.save_audio(audio_path=dist_dir + audio_name + ".wav", audio_data=audio_excerpt, sr=sr)

@@ -15,16 +15,16 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
-from Utilities import DirectoryManager
-from Utilities import FileManager
-from EffectsManager import EffectsManager
+from Utilities import directory_manager
+from Utilities import file_manager
+from EffectsManager import effects_manager
 
 # source directory
 source_dir = "../../Test_Data/Reference_Audios"
 # dis directory
 dist_dir = "../../Test_Data/Query_Audios/Speed_Change"
 # all reference audios, .mp3 format
-mp3_files = DirectoryManager.find_mp3_files(source_dir=source_dir)
+mp3_files = directory_manager.find_mp3_files(source_dir=source_dir)
 # apply speed change on the first audio file
 original_audio_path = mp3_files[0]
 print(original_audio_path.split("/"))
@@ -33,12 +33,12 @@ audio_name = original_audio_path.split("/")[4].split(".")[0]
 print("Original Audio Path: ", original_audio_path)
 # applying 10% speed change to for an audio portion specified with offset and duration parameters
 speed_change_in_percent = 0
-EffectsManager.apply_speed_change(original_audio_path=original_audio_path,
-                                  modified_audio_path=dist_dir + "/" + audio_name + "_Speed_" + str(speed_change_in_percent) + ".wav",
-                                  target_speed_in_percent=speed_change_in_percent,
-                                  offset=10.0,
-                                  duration=5.0
-                                  )
+effects_manager.apply_speed_change(original_audio_path=original_audio_path,
+                                   modified_audio_path=dist_dir + "/" + audio_name + "_Speed_" + str(speed_change_in_percent) + ".wav",
+                                   target_speed_in_percent=speed_change_in_percent,
+                                   offset=10.0,
+                                   duration=5.0
+                                   )
 # applying -10% speed change to an audio portion specified with offset and duration parameters
 '''EffectsManager.apply_speed_change(original_audio_path=original_audio_path,
                                   modified_audio_path=dist_dir + "/" + audio_name + str(100 - 10) + ".wav",
